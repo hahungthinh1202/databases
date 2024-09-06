@@ -1,10 +1,12 @@
 ### Exercises 2: Single Table Queries
 
 Question 1:
+
 select * from goal;
 ![image](https://github.com/user-attachments/assets/d9e9e350-d0c6-4bee-9c0d-d6f175443c63)
 
 Question 2:
+
 select name from airport where iso_country ='FI';
 ![image](https://github.com/user-attachments/assets/b9e5e22b-de15-4abd-acab-5331e6f9d88f)
 
