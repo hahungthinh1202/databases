@@ -341,7 +341,7 @@ where game.co2_consumed in (
 Question 5:
 
 select country.name, count(*)
-from airport join country on airport.iso_country = country.iso_country
+from airport left join country on airport.iso_country = country.iso_country
 group by country.iso_country order by count(*) desc limit 50;
 
 ![image](https://github.com/user-attachments/assets/b3c787d8-541d-4532-99b9-34e72d821bb6)
@@ -349,55 +349,102 @@ group by country.iso_country order by count(*) desc limit 50;
 
 Question 6:
 
+select country.name
+from airport join country on airport.iso_country = country.iso_country
+group by country.iso_country having count(*)>=1000;
+
+![image](https://github.com/user-attachments/assets/87e73996-5689-45e1-ba86-3f7f733c7855)
+
+
 Question 7:
+
+select airport.name
+from airport
+where elevation_ft in (select max(elevation_ft) from airport);
+
+![image](https://github.com/user-attachments/assets/1e963bbd-aaa0-4899-b569-3d4176278e33)
+
 
 Question 8:
 
+select country.name
+from country join airport on country.iso_country = airport.iso_country
+where airport.elevation_ft in (select max(elevation_ft) from airport);
+
+![image](https://github.com/user-attachments/assets/e1ffaeed-c06f-48a4-a20f-9009c9b57310)
+
+
 Question 9:
 
+select count(*)
+from goal_reached left join game on goal_reached.game_id = game.id
+where game.screen_name = 'Vesa';
+
+![image](https://github.com/user-attachments/assets/bcd4d648-2c9c-4f8b-8285-ed7bf0205828)
+
+
 Question 10:
+
+select airport.name
+from airport
+where latitude_deg in (
+    select min(latitude_deg)
+    from airport
+    );
+
+![image](https://github.com/user-attachments/assets/18cd9c38-7b0b-43d1-a74f-c56b1fce9276)
+
+
+
+--------------------------------------------------------------------------------------------------------------------------
 
 ### Exercises 7: Update Queries
 
 Question 1:
 
-Question 2:
+update game
+set co2_consumed = co2_consumed + 500, location = (
+    select airport.ident
+    from airport
+    where name = 'Nottingham Airport'
+    )
+where screen_name = 'Vesa';
 
-Question 3:
+![image](https://github.com/user-attachments/assets/29564df5-b379-49e0-9d66-c8e696d954e0)
 
-Question 4:
-
-Question 5:
-
-Question 6:
-
-Question 7:
-
-Question 8:
-
-Question 9:
-
-Question 10:
-
-### Exercises 7: Database Design
-
-Question 1:
 
 Question 2:
 
+b. goal_reached
+
 Question 3:
+
+delete from goal_reached;
 
 Question 4:
 
-Question 5:
+delete from game;
 
-Question 6:
+--------------------------------------------------------------------------------------------------------------------------
+### Exercises 8: Database Design
 
-Question 7:
+Question 1:  ident
 
-Question 8:
+Question 2:  airport
 
-Question 9:
+Question 3:  b. Each country can have multiple airports.
 
-Question 10:
+Question 4:  True
+
+Question 5:  True
+
+Question 6:  c. The airport table will have a foreign key that references the country table.
+
+Question 7:  b. The game table will have a foreign key that references the airport table.
+
+Question 8:  True
+
+Question 9:  a. The relationship diamond will have its own table.
+
+Question 10:  a. Two foreign keys: One referencing the game table and another referencing the goal table.
   
