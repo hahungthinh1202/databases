@@ -226,29 +226,78 @@ from goal left join goal_reached on goal.id = goal_reached.goal_id
 ![image](https://github.com/user-attachments/assets/28910da9-3775-40aa-9baa-74e8065bbbe5)
 
 
+
 --------------------------------------------------------------------------------------------------------------------------
 
 ### Exercises 5: Subqueries
 
 Question 1:
 
+select country.name
+from country where country.iso_country in (
+    select airport.iso_country
+    from airport where airport.name like 'Satsuma%'
+    );
+
+![image](https://github.com/user-attachments/assets/1369082a-9c65-40fd-8116-dbd3338f671d)
+
+
 Question 2:
+
+select airport.name
+from airport where airport.iso_country in (
+    select country.iso_country
+    from country where country.name = 'Monaco'
+    );
+
+![image](https://github.com/user-attachments/assets/02dc480a-24f1-422d-8fd3-3524e2c818f8)
+
 
 Question 3:
 
+select game.screen_name
+from game where game.id in (
+    select goal_reached.game_id
+    from goal_reached where goal_reached.goal_id in (
+        select goal.id
+        from goal where goal.name = 'CLOUDS'
+        )
+    );
+
+![image](https://github.com/user-attachments/assets/f80d92c0-e9f9-45c4-b306-aa0ef1e0933c)
+
+
 Question 4:
+
+select country.name
+from country
+where country.iso_country not in (
+    select airport.iso_country
+    from airport
+    );
+
+![image](https://github.com/user-attachments/assets/14fce6d3-279e-440a-b279-ddeb3ac364aa)
+
 
 Question 5:
 
-Question 6:
+select goal.name
+from goal
+where goal.id not in (
+    select goal_reached.goal_id
+    from goal_reached
+    where goal_reached.game_id in (
+        select game.id
+        from game
+        where game.screen_name = 'Heini'
+        )
+    );
 
-Question 7:
+![image](https://github.com/user-attachments/assets/66d4b018-3494-4852-9330-a580a4aab0bc)
 
-Question 8:
 
-Question 9:
 
-Question 10:
+--------------------------------------------------------------------------------------------------------------------------
 
 ### Exercises 6: Aggregate Queries
 
