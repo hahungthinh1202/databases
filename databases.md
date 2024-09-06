@@ -28,7 +28,9 @@ select name, type from airport where iso_country ='FI' group by type, name;
 
 
 Question 5:
+
 select name from country where name like 'f%';
+
 ![image](https://github.com/user-attachments/assets/ed32e57e-a3c8-47ce-a276-76ef42dcd741)
 
 Question 6:
