@@ -1,7 +1,6 @@
 ### Exercises 2: Single Table Queries
 
 Question 1:
-
 select * from goal;
 
 ![image](https://github.com/user-attachments/assets/d9e9e350-d0c6-4bee-9c0d-d6f175443c63)
