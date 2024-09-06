@@ -1,42 +1,45 @@
-![image](https://github.com/user-attachments/assets/1335a302-422b-4694-a66c-79528fa16961)# Week [3]
-
 ### Exercises 2: Single Table Queries
 
-  Question 1:
-  select * from goal;
-  ![Screenshot 2024-09-06 181725](https://github.com/user-attachments/assets/cc6d3f5b-3e97-4284-a9b3-9439ce6c1bec)
+Question 1:
+select * from goal;
+![image](https://github.com/user-attachments/assets/d9e9e350-d0c6-4bee-9c0d-d6f175443c63)
 
-  Question 2:
-  select name from airport where iso_country ='FI';
-  ![image](https://github.com/user-attachments/assets/24ac443e-0f41-40aa-8115-4c889c57c05b)
+Question 2:
+select name from airport where iso_country ='FI';
+![image](https://github.com/user-attachments/assets/b9e5e22b-de15-4abd-acab-5331e6f9d88f)
 
-  Question 3:
-  select name from airport where iso_country ='FI' group by name;
-  ![image](https://github.com/user-attachments/assets/f4a0bfc0-df0c-4ed6-9c22-fa1e8cdae8d3)
-  
-  Question 4:
-  select name, type from airport where iso_country ='FI' group by type, name;
-  ![image](https://github.com/user-attachments/assets/987c63ca-a793-493b-8935-88c170747d67)
+Question 3:
+select name from airport where iso_country ='FI' group by name;
+![image](https://github.com/user-attachments/assets/7174d5db-01d0-4af2-80a7-01cfb6e3edde)
 
-  
-  Question 1:
-  select * from goal;
-  
-  Question 5:
-  select * from goal;
-  
-  Question 6:
-  select * from goal;
-  
-  Question 7:
-  select * from goal;
-  
-  Question 8:
-  select * from goal;
-  
-  Question 9:
-  select * from goal;
-  
-  Question 10:
-  select * from goal;
+Question 4:
+select name, type from airport where iso_country ='FI' group by type, name;
+![image](https://github.com/user-attachments/assets/4e256d21-7d2c-4d69-b588-ad16bf0d2357)
+
+Question 5:
+select name from country where name like 'f%';
+![image](https://github.com/user-attachments/assets/ed32e57e-a3c8-47ce-a276-76ef42dcd741)
+
+Question 6:
+Select name as name from country where name like '%f%';
+![image](https://github.com/user-attachments/assets/f4b94ee4-aa7e-4f66-88f8-90ae45e7e637)
+
+Question 7:
+select location from game where screen_name = "Vesa";
+![image](https://github.com/user-attachments/assets/ade081df-9ef7-457a-9053-e5cb1f297f7e)
+
+Question 8:
+select co2_consumed from game where screen_name = "Ilkka";
+![image](https://github.com/user-attachments/assets/2bd23e4c-ebc4-4233-891d-1fb2cffaa188)
+
+Question 9:
+select distinct game.co2_budget from game;
+![image](https://github.com/user-attachments/assets/3d1017eb-c3df-4941-8c13-77ede6d8b845)
+
+Question 10:
+select screen_name, co2_budget, co2_consumed, @co2_left:=co2_budget-co2_consumed as co2_left
+from game  
+where screen_name = 'Ilkka';
+![image](https://github.com/user-attachments/assets/f5916a07-438e-4d89-bd0f-4c69d4a85e52)
+
   
