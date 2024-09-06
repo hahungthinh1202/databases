@@ -303,13 +303,49 @@ where goal.id not in (
 
 Question 1:
 
+select max(elevation_ft)
+from airport;
+
+![image](https://github.com/user-attachments/assets/e0178069-e1d4-40a3-82c5-a35ce431255f)
+
+
 Question 2:
+
+select continent, count(*)
+from country group by continent;
+
+![image](https://github.com/user-attachments/assets/39d8f2d8-eca7-4bef-a891-41d4ab1fbb75)
+
 
 Question 3:
 
+select game.screen_name, count(*)
+from game right join goal_reached on game.id = goal_reached.game_id
+    group by screen_name;
+
+![image](https://github.com/user-attachments/assets/70956fb5-2c30-42d8-8ba7-a57e605605c9)
+
+
 Question 4:
 
+select game.screen_name
+from game
+where game.co2_consumed in (
+     select min(game.co2_consumed)
+     from game
+);
+
+![image](https://github.com/user-attachments/assets/cf64a35d-7169-4866-a66e-d1de0a1ff173)
+
+
 Question 5:
+
+select country.name, count(*)
+from airport join country on airport.iso_country = country.iso_country
+group by country.iso_country order by count(*) desc limit 50;
+
+![image](https://github.com/user-attachments/assets/b3c787d8-541d-4532-99b9-34e72d821bb6)
+
 
 Question 6:
 
